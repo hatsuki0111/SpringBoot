@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="GetPost" method="post">
+    <textarea name="text" cols="40" rows="5"></textarea>
+    <button type="submit">送信する</button>
+</form>
+<p>[[${message}]]</p>
+<p>[[${postedAt}]]</p>
+<ul th:each="ri:${retrospectives}">
+    <li ><pre style="background:azure" >[[${ri.text}]]</pre>----[[${ri.postedAt}]]</li>
+</ul>
+</body>
+</html>
