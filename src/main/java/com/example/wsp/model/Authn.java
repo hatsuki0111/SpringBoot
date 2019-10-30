@@ -1,32 +1,26 @@
 package com.example.wsp.model;
 
-public class AuthN {
+public class Authn {
 
-    private String userid;
+    private String userId;
     private String passphrase;
     private String userName;
     private String userRole;
 
-    public AuthN(String userid,String passphrase){
-        this.userid =userid;
-        this.passphrase = passphrase;
-        this.userName = userName;
-        this.userRole = userRole;
+
+    public Authn(){
+        this.userId = "";
+        this.passphrase = null;
+        this.userName = "";
+        this.userRole = "";
     }
 
-    public AuthN(){
-        this.userid ="";
-        this.passphrase = "";
-        this.userName = userName;
-        this.userRole = userRole;
+    public String getUserId(){
+        return userId;
     }
 
-    public String getUserid(){
-        return userid;
-    }
-
-    public void setUserid(String userid){
-        this.userid = userid;
+    public void setUserId(String userId){
+        this.userId = userId;
     }
 
     public String getPassphrase(){
@@ -49,7 +43,8 @@ public class AuthN {
         return userRole;
     }
 
-    public void setUserRole(){
+    public void setUserRole(String userRole){
         this.userRole = userRole;
     }
+
 }

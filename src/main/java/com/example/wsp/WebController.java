@@ -4,7 +4,9 @@ import com.example.wsp.model.SignService;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.example.wsp.model.RetrospectService;
@@ -54,18 +56,16 @@ public class WebController {
     }
 
     @GetMapping("SignIn")
-    public String signin(String userid,String passphrase,Model model){
-        var message = Signservice.register(userid,passphrase);
-        model.addAttribute("",message);
+    public String signIn(Model model){
+
         return "signin";
     }
 
     @PostMapping("Signed")
     public String signed(String userId,String passphrase,Model model){
-        boolean message = true;
 
-       if(message = Signservice.doSignIn(userId, passphrase)){
-            model.addAttribute("message",message);
+       if(Signservice.doSignIn(userId, passphrase)){
+            model.addAttribute("userId",userId);
             return "signed";
         }else{
            return "signin";

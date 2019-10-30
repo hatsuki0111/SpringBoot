@@ -22,7 +22,7 @@ public class RetrospectRepository {
         var sql = "insert into retrospect values(?,?)";
 
         var n = jdbc.update(sql,retrospect.getText(),retrospect.getPostedAt());
-
+        System.out.println(n);
         return n;
     }
 
