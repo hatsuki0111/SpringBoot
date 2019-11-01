@@ -8,6 +8,9 @@ public class WspApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WspApplication.class, args);
+
+
+
 	}
 
 }
