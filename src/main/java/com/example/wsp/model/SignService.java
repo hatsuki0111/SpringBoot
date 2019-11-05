@@ -19,7 +19,7 @@ public class SignService {
     public boolean doSignIn(String userId, String passphrase) {
             var authn = repository.select(userId);
         try {
-            if(passphrase.equals(authn.getPassphrase())) {
+            if(DigestUtils.sha1Hex(passphrase).equals(authn.getPassphrase())) {
                 return true;
             }
         }catch (DataAccessException e) {

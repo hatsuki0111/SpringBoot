@@ -1,6 +1,7 @@
 package com.example.wsp;
 
 import com.example.wsp.model.SignService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
