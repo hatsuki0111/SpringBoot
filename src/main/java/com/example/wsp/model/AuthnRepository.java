@@ -23,4 +23,5 @@ public class AuthnRepository {
                 .findFirst()
                 .orElseThrow();
     }
+
 }
