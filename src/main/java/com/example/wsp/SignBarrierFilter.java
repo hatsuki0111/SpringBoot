@@ -31,17 +31,20 @@ public class SignBarrierFilter implements Filter {
         System.out.println(httpSession.getId()+"のuserId:"+userId);
 
 
+        //未認証のパス
         if(path.equals("/GetPost") || path.equals("/test")){
             //処理を継続
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         } else
+            //認証後のパス
             if(path.equals("/Signed") && method.equals("POST")){
                 //処理を継続
                 filterChain.doFilter(servletRequest, servletResponse);
                 return;
             }
 
+            //セッションがないとき
         if(Objects.isNull(userId)) {
             var dispatcher = servletRequest.getRequestDispatcher("SignIn");
             dispatcher.forward(servletRequest,servletResponse);
