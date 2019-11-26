@@ -17,15 +17,20 @@ public class SignService {
     private AuthnRepository repository;
 
     public boolean doSignIn(String userId, String passphrase) {
-            var authn = repository.select(userId);
+        var authn = repository.select(userId);
         try {
-            if(DigestUtils.sha1Hex(passphrase).equals(authn.getPassphrase())) {
+            if (DigestUtils.sha1Hex(passphrase).equals(authn.getPassphrase())) {
                 return true;
             }
-        }catch (DataAccessException e) {
+        } catch (DataAccessException e) {
             e.printStackTrace();
         }
-            return false;
-        }
-        //repository.select(userId).equals(passphrase
+        return false;
+    }
+
+    //Autnからデータを取得
+    public Authn getAuthn(String userId){
+        var authn = repository.select(userId);
+        return authn;
+    }
 }

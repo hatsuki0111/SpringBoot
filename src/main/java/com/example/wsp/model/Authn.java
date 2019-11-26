@@ -1,7 +1,11 @@
 package com.example.wsp.model;
 
-public class Authn {
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 
+public class Authn{
+    
     private String userId;
     private String passphrase;
     private String userName;
